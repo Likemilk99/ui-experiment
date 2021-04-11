@@ -6,9 +6,7 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/material-ui">
-                    <Material />
-                </Route>
+                <Route path="/material-ui" component={Material} />
                 <Route path="/react-table">
                     <ReactTableView />
                 </Route>

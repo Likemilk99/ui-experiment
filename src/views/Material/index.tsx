@@ -4,7 +4,8 @@ import { PageWrapper } from "./style"
 const Material = () => {
     return (
         <PageWrapper>
-            <div></div>
+            <div>One</div>
+            <div>Two</div>
         </PageWrapper>
     )
 }
