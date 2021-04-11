@@ -33,7 +33,7 @@ const defaultColumn = {
     Cell: EditableCell,
 }
 
-const Table = ({ columns, data }: any) => {
+const Table = ({ columns, data, updateMyData }: any) => {
     // For this example, we're using pagination to illustrate how to stop
     // the current page from resetting when our data changes
     // Otherwise, nothing is different here.
@@ -47,6 +47,8 @@ const Table = ({ columns, data }: any) => {
         columns,
         data,
         defaultColumn,
+        //@ts-ignore
+        updateMyData,
     })
 
     // Render the UI for your table
@@ -129,13 +131,32 @@ const ReactTableView = () => {
         [],
     )
 
+    const updateMyData = (rowIndex: number, columnId: number, value: any) => {
+        // We also turn on the flag to not reset the page
+        setData((old) =>
+            old.map((row, index) => {
+                if (index === rowIndex) {
+                    return {
+                        ...old[rowIndex],
+                        [columnId]: value,
+                    }
+                }
+                return row
+            }),
+        )
+    }
+
     const resetData = () => setData(originalData)
 
     return (
         <>
             <Styles>
                 <button onClick={resetData}>Reset data</button>
-                <Table columns={columns} data={data} />
+                <Table
+                    columns={columns}
+                    data={data}
+                    updateMyData={updateMyData}
+                />
             </Styles>
         </>
     )
