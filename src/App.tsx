@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Material from "./views/Material"
+import { Material, ReactTableView } from "./views"
 
 function App() {
     return (
@@ -8,6 +8,9 @@ function App() {
             <Switch>
                 <Route path="/material-ui">
                     <Material />
+                </Route>
+                <Route path="/react-table">
+                    <ReactTableView />
                 </Route>
             </Switch>
         </Router>
