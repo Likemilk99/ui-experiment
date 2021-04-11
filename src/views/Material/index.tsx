@@ -1,7 +1,7 @@
 import React from "react"
 
 const Material = () => {
-    return <div>Material</div>
+    return <div></div>
 }
 
 export default Material
